@@ -1,0 +1,9 @@
+#compdef terraform
+
+_terraform() {
+  _arguments \
+    '-chdir=[directory]:directory:_directories' \
+    '*::command:->subcmd'
+}
+
+_terraform "$@"

@@ -91,5 +91,12 @@ alias pc='plan-command'
 source <(fzf --zsh)
 
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# dotfiles ディレクトリ
+DOTFILES="$HOME/dotfiles/zsh"
+
+# 補完関数を fpath に追加
+fpath=($DOTFILES/completions $fpath)
+
+# compinit を有効化
+autoload -Uz compinit
+compinit
