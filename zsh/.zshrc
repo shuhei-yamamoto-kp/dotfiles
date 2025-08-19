@@ -97,6 +97,10 @@ DOTFILES="$HOME/dotfiles/zsh"
 # 補完関数を fpath に追加
 fpath=($DOTFILES/completions $fpath)
 
+for file in $DOTFILES/functions/*.sh; do
+  source "$file"
+done
+
 # compinit を有効化
 autoload -Uz compinit
 compinit
