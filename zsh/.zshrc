@@ -100,3 +100,5 @@ fpath=($DOTFILES/completions $fpath)
 # compinit を有効化
 autoload -Uz compinit
 compinit
+
+complete -o nospace -C $(which terraform) terraform
