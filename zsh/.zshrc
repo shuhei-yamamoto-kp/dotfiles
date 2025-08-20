@@ -56,6 +56,26 @@ export PATH=$PATH:/Users/syamamoto/Library/Python/3.9/bin
 
 export PATH=$PATH:${HOME}/work/sy-other/tool/bin
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+
+# dotfiles ディレクトリ
+DOTFILES="$HOME/dotfiles/zsh"
+
+# 補完関数を fpath に追加
+fpath=($DOTFILES/completions $fpath)
+
+for file in $DOTFILES/functions/*.sh; do
+  source "$file"
+done
+
+# compinit を有効化
+autoload -Uz compinit
+compinit
+
+complete -o nospace -C $(which terraform) terraform
+
 alias sqlfmt="pbpaste | sqlformat - --reindent --keywords upper --use_space_around_operators"
 source "${HOME}/work/pass.txt"
 
@@ -86,23 +106,4 @@ plan-command() {
 # 短縮形
 alias pc='plan-command'
 
-
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-
-
-# dotfiles ディレクトリ
-DOTFILES="$HOME/dotfiles/zsh"
-
-# 補完関数を fpath に追加
-fpath=($DOTFILES/completions $fpath)
-
-for file in $DOTFILES/functions/*.sh; do
-  source "$file"
-done
-
-# compinit を有効化
-autoload -Uz compinit
-compinit
-
-complete -o nospace -C $(which terraform) terraform
+alias br='browse'
