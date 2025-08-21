@@ -8,6 +8,11 @@ cd ~/dotfiles
 stow zsh git nvim
 ```
 
+```bash
+echo /opt/homebrew/bin/zsh | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/zsh
+```
+
 ## Backup
 
 ### 2. Homebrew の移行
