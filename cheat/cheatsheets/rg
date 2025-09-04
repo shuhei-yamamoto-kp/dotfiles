@@ -1,0 +1,4 @@
+ripgrep
+
+隠しファイルも検索
+rg --hidden

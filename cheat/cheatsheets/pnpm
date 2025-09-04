@@ -1,0 +1,2 @@
+corepack disable pnpm
+corepack enable pnpm
